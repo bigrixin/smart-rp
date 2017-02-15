@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "Admin View";
+}
+
+<h4>
+    User: <span class="label label-success">@ViewBag.UserEmail</span><br />
+    Type: <span class="label label-info">@ViewBag.TypeOfUser</span>
+</h4>
+<hr />
+
+<ul style="list-style-type:none;  color: palevioletred; font-size: 14pt">
+    <li><span class="fa fa-user" aria-hidden="true"></span>@Html.ActionLink(" Role management", "Index", "RolesAdmin", routeValues: null, htmlAttributes: new { title = "Role management" })</li>
+    <li><span class="fa fa-users" aria-hidden="true"></span>@Html.ActionLink(" User management", "Index", "UsersAdmin", routeValues: null, htmlAttributes: new { title = "User management" })</li>
+    <li><span class="fa fa-user-md" aria-hidden="true"></span>@Html.ActionLink(" View Users", "ViewUsers", "MyAccount", routeValues: null, htmlAttributes: new { title = "View Users" })</li>
+    <li><a href="" title="Search"><span aria-hidden="true" class="fa fa-search"></span> Search</a></li>
+    <li><br /></li>
+    <li><span class="fa fa-key"></span>@Html.ActionLink(" Change Password", "changepassword", "Manage", routeValues: null, htmlAttributes: new { title = "Change Password" })</li>
+    <li><br /></li>
+    <li><a href="/@ConfigurationManager.AppSettings["elmah.mvc.route"]"><span aria-hidden="true" class="fa fa-life-ring"></span> Elmah</a></li>
+    <li><a href="/glimpse.axd"><span aria-hidden="true" class="fa fa-line-chart"></span> Glimpse</a></li>
+    <li><a href="/trace.axd"><span aria-hidden="true" class="fa fa-heart"></span> Tracing</a></li>
+</ul>

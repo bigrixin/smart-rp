@@ -1,0 +1,88 @@
+
+    public class Coordinator : User
+    {
+        public virtual ICollection<Term> OpenedTerms { get; set; }
+    }
+	
+    public class Term
+    {
+        public int Id { get; set; }
+        public string TermName { get; set; }
+        public DateTime? StartAt { get; set; }
+        public DateTime? EndAt { get; set; }
+
+        public virtual ICollection<Student> RegisteredStudents { get; set; }
+        public virtual ICollection<Supervisor> RegisteredSupervisors { get; set; }
+        public int CoordinatorId { get; set; }
+    }
+	
+    public class Student : User
+    {
+        public virtual ICollection<Interest> PostedInterests { get; set; }
+        public string Degree { get; set; }
+        public Subject SubjectName { get; set; }
+        public float? GPA { get; set; }
+        public bool Leader { get; set; }
+        public int? TermId { get; set; }
+        public int? GroupId { get; set; }
+    }	
+		
+    public class Supervisor : User
+    {
+        public virtual ICollection<Interest> PostedInterests { get; set; }
+        public virtual ICollection<Project> PostedProjects { get; set; }
+        public int? TermId { get; set; }
+    }	
+		
+    public class Group
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public GroupStatus Status { get; set; }
+        public int Size { get; set; }
+        public int ProjectId { get; private set; }
+        public DateTime? CreatedAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
+        public virtual ICollection<Student> JoinedStudents { get; set; }
+    }	
+		
+    public class Interest
+    {
+        public int ID { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public int? StudentId { get; private set; }
+        public int? SupervisorId { get; set; }
+        public int? ProjectId { get; set; }
+        public DateTime? CreatedAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }	
+    }
+		
+    public class Project
+    {
+        public int Id;
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public ProjectStatus Status { get; set; }
+        public ProjectType Type { get; set; }
+        public string ApprovedNumber { get; set; }
+        public int TeamSize { get; set; }
+        public DateTime? ExpiredAt { get; set; }
+        public DateTime? CreatedAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
+        public int SupervisorId { get; set; }
+        public virtual ICollection<Interest> PostedInterests { get; set; }
+        public virtual ICollection<Group> RegisteredGroups { get; set; }
+        public virtual ICollection<Report> UploadedReports { get; set; }		
+		
+    }
+		
+    public class Report
+    {
+        public int Id { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public string ReportURL { get; set; }
+        public int ProjectId { get; set; }
+    }

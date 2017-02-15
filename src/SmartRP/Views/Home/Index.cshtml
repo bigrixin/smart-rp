@@ -1,0 +1,88 @@
+﻿@{
+    // title - The title of the page which appears in the browser window title. Aim for the title to be less than 70
+    //         characters. The site name appears at the end for better SEO.
+    ViewBag.Title = "Home";
+    // Description - Used by search engines. Aim for more than 160 characters.
+    ViewBag.Description = " The Research Project is a compulsory course needed to be taken by students of different" +
+                            " degrees. This website provides functionality" +
+                            " to Co-orinator, Supervisor and Student to management the Research Project during the semester.";
+    // Author - (Optional) Used by search engines. The author of the page.
+    ViewBag.Author = "Steven";
+    // Referrer - (Optional) Controls what is sent in the HTTP referrer header when a client navigates from your page
+    //            to an external site for increased user privacy and security. See ReferrerMode for more information.
+    ViewBag.ReferrerMode = ReferrerMode.OriginWhenCrossOrigin;
+
+    // Add Twitter Card and Open Graph social meta tags so we can customize what happens when our page is shared
+    // on these social networks. Note that other social networks like Google+, Pintrest and others also use these.
+    // There are dozens of different Twitter Card or Open Graph object types we could add, a different one is added
+    // on each page as an example.
+    // These helpers make it very easy to add the meta tags. For best performance, see what tags are generated and
+    // hand code them yourself instead of using these helpers.
+    ViewBag.TwitterCard = new SummaryLargeImageTwitterCard("@RehanSaeedUK");
+    ViewBag.OpenGraph = new OpenGraphWebsite(
+            ViewBag.Title,
+            new OpenGraphImage(Url.AbsoluteContent("~/content/icons/open-graph-1200x630.png")) { Height = 630, Type = ContentType.Png, Width = 1200 })
+    {
+        Determiner = OpenGraphDeterminer.Blank,
+        SiteName = Application.Name
+    };
+}
+
+<header class="jumbotron">
+    <h1>@ViewBag.Title</h1>
+    <p class="lead">@ViewBag.Description</p>
+    <p><a href="https://github.com/ASP-NET-MVC-Boilerplate/Templates" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+</header>
+
+<div class="row">
+    <article class="col-md-4" role="article">
+        <header>
+            <h2><span aria-hidden="true" class="fa fa-users"></span> Student</h2>
+        </header>
+        <p>
+            It allow student to create a Group, 
+            Create Group (Update group) <br />
+            Browse groups and Apply ()<br />
+            Can view projects<br />
+            Apply for projects<br />
+            Propose Projects (post on project list ?)<br />
+            Add Interest, edit and delete interest<br />
+            Browse Supervisors and their projects<br />
+            Get enrolled in a particular project<br />
+            Handle different requests (group request) and notifications (Email ?)<br />
+            Upload report<br />
+        </p>
+    </article>
+    <article class="col-md-4" role="article">
+        <header>
+            <h2><span aria-hidden="true" class="fa fa-user"></span> Supervisor</h2>
+        </header>
+        <p>
+            Can add interests, edit and delete interests (Keyword)<br />
+            Can add ready to go projects  (post on project list )<br />
+            Can approve proposed projects <br />
+            Can view TRP and RP students (in the Term<br />
+            Send messages (Email ?) <br />
+            Receive requests ()<br />
+            Can approve or reject requests (Who approve? Supervisor or Coordinator)<br />
+            Receive Notifications (Email ?)<br />
+        </p>
+    </article>
+    <article class="col-md-4" role="article">
+        <header>
+            <h2><span aria-hidden="true" class="fa fa-user-md"></span> Co-ordinator</h2>
+        </header>
+        <p>
+            Can see a list of students that are either RP or TRP （可选不同的Term ?）<br />
+            Can view a list of supervisors, view their projects and groups enrolled for the projects (view projects that have group info)<br />
+            Can see all the TRP and RP groups in the database (需要不同的Term?)<br />
+            Can see any incoming notifications (Email ?)<br />
+            Can send message to individual students, supervisors (Email ?)<br />
+            Can send message to a group of people (Email ?)<br />
+            Can add ready to go projects<br />
+            Approve projects (set project number)<br />
+
+
+        </p>
+    </article>
+</div>

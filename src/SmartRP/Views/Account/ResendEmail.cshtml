@@ -1,0 +1,11 @@
+﻿
+@{
+    ViewBag.Title = "ResendEmail";
+}
+
+<h2>Resend Email</h2>
+
+<div class="alert alert-warning">
+    Your email (@ViewBag.Email) has not been verified. <br /><br />
+    @Html.ActionLink("Click here", "ResendConfirmEmail", "Account", new { email = ViewBag.Email }, null) to re-send your confirmation email.
+</div>

@@ -1,0 +1,16 @@
+﻿@{
+	ViewBag.Title = "Confirm Email";
+}
+
+<h1 class="page-header">
+	Well done!
+</h1>
+
+<div>
+	Your email has been verified.
+
+@if (!Request.IsAuthenticated)
+{
+	@:Please @Html.ActionLink("click here to log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
+}
+</div>

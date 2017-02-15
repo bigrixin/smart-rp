@@ -1,0 +1,20 @@
+﻿@{
+	ViewBag.Title = "Manage";
+}
+
+<h1 class="page-header">
+	Status update
+</h1>
+
+@if (ViewBag.StatusMessage == "An error has occurred.")
+{
+	<div class="alert alert-success">
+		<strong>Oops!</strong> @ViewBag.StatusMessage
+	</div>
+}
+else
+{
+	<div class="alert alert-success">
+		<strong>Success!</strong> @ViewBag.StatusMessage
+	</div>
+}

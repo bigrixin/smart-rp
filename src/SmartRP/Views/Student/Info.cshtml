@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Title = "My Account > Student Info";
+}
+
+<h1 class="page-header">
+    My Account
+</h1>
+
+<div class="bottom-buffer-10">
+    @if (!ViewBag.EmailVerified)
+    {
+        <div class="alert alert-warning">
+            Your email has not been verified. @Html.ActionLink("Click here", "ResendConfirmEmail", "Account") to re-send your confirmation email.
+        </div>
+    }
+
+    <h4>
+        User: <span class="label label-success">@ViewBag.UserEmail</span>
+        @if (ViewBag.EmailVerified)
+        {
+            <span class="label label-info">verified</span>}
+    </h4>
+</div>
+
+<div>
+    <ul class="list-unstyled">
+        <li class="bottom-buffer-20">
+            <h4><span class="fa fa-key"></span> Profile Management</h4>
+            <ul class="list-unstyled">
+                <li><a href="" title="Update profile">Update profile</a></li>
+                <li>@Html.ActionLink("Change Password", "changepassword", "Manage", routeValues: null, htmlAttributes: new { title = "Change Password" })</li>
+            </ul>
+        </li>
+        <li class="bottom-buffer-20">
+            <h4><span aria-hidden="true" class="fa fa-users"></span> Patient Management</h4>
+            <ul class="list-unstyled">
+                <li><a href="" title="Add a patient">Add a Patient</a></li>
+                <li><a href="" title="Update a patient">Update a Patient</a></li>
+            </ul>
+        </li>
+        <li class="bottom-buffer-20">
+            <h4><span aria-hidden="true" class="fa fa-heart-o"></span> Job postings</h4>
+            <ul class="list-unstyled">
+                <li>@Html.ActionLink("Post a new job", "create", "Job", routeValues: null, htmlAttributes: new { title = "Post a Job" })</li>
+                <li>@Html.ActionLink("All jobs / Update a job", "index", "Job", routeValues: null, htmlAttributes: new { title = "Update a Job" })</li>
+            </ul>
+        </li>
+        <li class="bottom-buffer-20">
+            <h4>
+                <span aria-hidden="true" class="fa fa-search"></span> <a href="" title="Search">Search</a>
+            </h4>
+        </li>
+    </ul>
+</div>
